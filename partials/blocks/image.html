@@ -1,0 +1,24 @@
+{{ with $block := .block }}
+  {{ with .image }}
+    {{ $class := "" }}
+    {{ $style := "" }}
+    {{ if $block.contain_image }}
+      {{ $class = "max-w-md mx-auto" }}
+    {{ end }}
+    {{ with $block.max_width }}
+      {{ $style = printf "max-width: %spx;" (string .) }}
+    {{ end }}
+    <div 
+      {{ with $class }}
+        class="{{ $class }}"
+      {{ end }}
+      {{ with $style }}
+        style="{{ . | safeCSS }}"
+      {{ end }}
+    >
+      {{ if in . ".svg" }}
+      <img src="{{ partialCached "tnd-imgix/GetSRC" . . }}" alt="">
+      {{ end }}
+    </div>
+  {{ end }}
+{{ end }}
