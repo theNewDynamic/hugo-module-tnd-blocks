@@ -1,7 +1,3 @@
-This is a template repo. To start.
-
-search `blocks` through the project and replace it with the module identifier (ex: `socials` for `hugo-module-tnd-socials`)
-
 # blocks Hugo Module
 
 (intro)
